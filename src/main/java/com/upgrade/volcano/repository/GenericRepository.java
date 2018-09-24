@@ -1,11 +1,10 @@
-package com.upgrade.volcano.service;
+package com.upgrade.volcano.repository;
 
-import com.upgrade.volcano.contract.service.Service;
 import com.upgrade.volcano.model.Model;
 
 import java.util.ArrayList;
 
-public class GenericService<T extends Model> implements Service<T> {
+public class GenericRepository<T extends Model> implements com.upgrade.volcano.contract.repository.GenericRepository<T> {
     @Override
     public T getById(int id) {
         return null;

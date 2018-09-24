@@ -1,10 +1,10 @@
-package com.upgrade.volcano.contract.service;
+package com.upgrade.volcano.contract.repository;
 
 import com.upgrade.volcano.model.Model;
 
 import java.util.ArrayList;
 
-public interface Service<T extends Model>  {
+public interface GenericRepository<T extends Model>  {
 
     T getById(int id);
     ArrayList<T> getAll();

@@ -1,6 +1,4 @@
 package com.upgrade.volcano.service;
 
-import com.upgrade.volcano.model.Customer;
-
-public class CustomerService extends GenericService<Customer> {
+public class CustomerService implements com.upgrade.volcano.contract.service.CustomerService {
 }
