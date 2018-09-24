@@ -31,7 +31,6 @@ public class ReservationController implements ReservationControllerContract {
     @ResponseBody
     @RequestMapping("")
     public ArrayList<Reservation> getAllReservations() {
-        System.out.println("here");
         ArrayList<Reservation> result = reservationService.getAll();
         return result;
     }
