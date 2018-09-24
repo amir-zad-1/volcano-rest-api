@@ -1,4 +1,6 @@
 package com.upgrade.volcano.service;
 
-public class CustomerService implements com.upgrade.volcano.contract.service.CustomerService {
+import com.upgrade.volcano.contract.service.CustomerServiceContract;
+
+public class CustomerService implements CustomerServiceContract {
 }

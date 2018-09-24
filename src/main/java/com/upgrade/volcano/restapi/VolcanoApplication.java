@@ -20,9 +20,9 @@ public class VolcanoApplication {
 		SpringApplication.run(VolcanoApplication.class, args);
 	}
 
-	@ResponseBody
-	@RequestMapping("/")
-	public String sayHello(){
-		return "hello";
-	}
+//	@ResponseBody
+//	@RequestMapping("/")
+//	public String sayHello(){
+//		return "hello";
+//	}
 }

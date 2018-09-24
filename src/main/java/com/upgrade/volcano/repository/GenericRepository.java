@@ -1,10 +1,11 @@
 package com.upgrade.volcano.repository;
 
+import com.upgrade.volcano.contract.repository.GenericRepositoryContract;
 import com.upgrade.volcano.model.Model;
 
 import java.util.ArrayList;
 
-public class GenericRepository<T extends Model> implements com.upgrade.volcano.contract.repository.GenericRepository<T> {
+public class GenericRepository<T extends Model> implements GenericRepositoryContract<T> {
     @Override
     public T getById(int id) {
         return null;
@@ -12,7 +13,7 @@ public class GenericRepository<T extends Model> implements com.upgrade.volcano.c
 
     @Override
     public ArrayList<T> getAll() {
-        return null;
+        return new ArrayList<>();
     }
 
     @Override

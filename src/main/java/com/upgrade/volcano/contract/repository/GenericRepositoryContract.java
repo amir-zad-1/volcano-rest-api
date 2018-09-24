@@ -4,7 +4,7 @@ import com.upgrade.volcano.model.Model;
 
 import java.util.ArrayList;
 
-public interface GenericRepository<T extends Model>  {
+public interface GenericRepositoryContract<T extends Model>  {
 
     T getById(int id);
     ArrayList<T> getAll();
