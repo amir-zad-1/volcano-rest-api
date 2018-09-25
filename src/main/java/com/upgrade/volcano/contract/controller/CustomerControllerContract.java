@@ -1,4 +1,4 @@
-package com.upgrade.volcano.restapi.contract;
+package com.upgrade.volcano.contract.controller;
 
 public interface CustomerControllerContract {
 }

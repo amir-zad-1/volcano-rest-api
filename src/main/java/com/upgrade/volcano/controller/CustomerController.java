@@ -1,7 +1,7 @@
-package com.upgrade.volcano.restapi;
+package com.upgrade.volcano.controller;
 
 import com.upgrade.volcano.contract.service.CustomerServiceContract;
-import com.upgrade.volcano.restapi.contract.CustomerControllerContract;
+import com.upgrade.volcano.contract.controller.CustomerControllerContract;
 
 public class CustomerController implements CustomerControllerContract {
 

@@ -1,8 +1,8 @@
-package com.upgrade.volcano.restapi;
+package com.upgrade.volcano.controller;
 
-import com.upgrade.volcano.model.Reservation;
+import com.upgrade.volcano.entity.Reservation;
 import com.upgrade.volcano.contract.service.ReservationServiceContract;
-import com.upgrade.volcano.restapi.contract.ReservationControllerContract;
+import com.upgrade.volcano.contract.controller.ReservationControllerContract;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;

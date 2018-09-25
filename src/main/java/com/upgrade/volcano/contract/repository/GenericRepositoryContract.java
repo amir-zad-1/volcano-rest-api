@@ -1,6 +1,6 @@
 package com.upgrade.volcano.contract.repository;
 
-import com.upgrade.volcano.model.Model;
+import com.upgrade.volcano.entity.Model;
 
 import java.util.ArrayList;
 

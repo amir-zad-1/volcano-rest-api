@@ -1,7 +1,7 @@
 package com.upgrade.volcano.repository;
 
 import com.upgrade.volcano.contract.repository.GenericRepositoryContract;
-import com.upgrade.volcano.model.Model;
+import com.upgrade.volcano.entity.Model;
 
 import java.util.ArrayList;
 

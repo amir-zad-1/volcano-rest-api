@@ -3,7 +3,7 @@ package com.upgrade.volcano.service;
 
 import com.upgrade.volcano.contract.repository.ReservationRepositoryContract;
 import com.upgrade.volcano.contract.service.ReservationServiceContract;
-import com.upgrade.volcano.model.Reservation;
+import com.upgrade.volcano.entity.Reservation;
 import com.upgrade.volcano.repository.ReservationRepository;
 
 import java.util.ArrayList;
