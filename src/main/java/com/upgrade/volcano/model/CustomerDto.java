@@ -1,4 +1,4 @@
 package com.upgrade.volcano.model;
 
-public class Reservation {
+public class CustomerDto {
 }

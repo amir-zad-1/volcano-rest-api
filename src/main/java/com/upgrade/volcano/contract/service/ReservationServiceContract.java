@@ -2,10 +2,10 @@ package com.upgrade.volcano.contract.service;
 
 import com.upgrade.volcano.entity.Reservation;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface ReservationServiceContract {
 
-    ArrayList<Reservation> getAll();
+    List<Reservation> getAll();
 
 }

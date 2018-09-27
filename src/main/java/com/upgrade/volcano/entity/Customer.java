@@ -7,7 +7,7 @@ public class Customer extends Model {
     private String firstName;
     private String lastName;
 
-    Customer(String firstname, String lastname, String email) {
+    public Customer(String firstname, String lastname, String email) {
         firstName = firstname;
         lastName = lastname;
         this.email = email;

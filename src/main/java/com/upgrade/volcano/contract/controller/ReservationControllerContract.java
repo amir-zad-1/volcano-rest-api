@@ -1,10 +1,11 @@
 package com.upgrade.volcano.contract.controller;
 
-import com.upgrade.volcano.entity.Reservation;
+import com.upgrade.volcano.model.ApiJsonResponse;
+import com.upgrade.volcano.model.ReservationDto;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface ReservationControllerContract {
 
-    ArrayList<Reservation> getAllReservations();
+    ApiJsonResponse<List<ReservationDto>> getAllReservations();
 }
