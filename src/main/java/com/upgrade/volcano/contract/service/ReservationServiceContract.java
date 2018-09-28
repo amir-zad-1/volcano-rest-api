@@ -7,8 +7,9 @@ import java.util.List;
 public interface ReservationServiceContract {
 
     List<Reservation> getAll();
+    Reservation get(long reservationid);
     Reservation add(Reservation reservation);
     Reservation update(Reservation reservation);
-    boolean delete(int reservationid);
+    boolean delete(long reservationid);
 
 }

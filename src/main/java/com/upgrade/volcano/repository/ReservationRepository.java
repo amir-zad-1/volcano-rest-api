@@ -11,15 +11,15 @@ import java.util.List;
 @Repository
 public class ReservationRepository implements ReservationRepositoryContract {
 
-    private HashMap<Integer, Reservation> database;
+    private HashMap<Long, Reservation> database;
 
     public ReservationRepository() {
         this.database = new HashMap<>();
     }
 
     @Override
-    public Reservation getById(int id) {
-        return null;
+    public Reservation getById(long id) {
+        return this.database.getOrDefault(id, null);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class ReservationRepository implements ReservationRepositoryContract {
 
     @Override
     public Reservation add(Reservation item) {
-        int id = item.hashCode();
+        long id = item.hashCode();
         if (item.getId() == 0) {
             item.setId(id);
         }
@@ -48,7 +48,7 @@ public class ReservationRepository implements ReservationRepositoryContract {
     }
 
     @Override
-    public boolean remove(int id) {
+    public boolean remove(long id) {
         if (this.database.containsKey(id)) {
             this.database.remove(id);
             return true;

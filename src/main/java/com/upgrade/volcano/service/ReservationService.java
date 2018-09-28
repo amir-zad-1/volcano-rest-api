@@ -21,6 +21,11 @@ public class ReservationService implements ReservationServiceContract {
     }
 
     @Override
+    public Reservation get(long reservationid) {
+        return reservationRepository.getById(reservationid);
+    }
+
+    @Override
     public Reservation add(Reservation reservation) {  // todo: validation
         return reservationRepository.add(reservation);
     }
@@ -31,7 +36,7 @@ public class ReservationService implements ReservationServiceContract {
     }
 
     @Override
-    public boolean delete(int reservationid) {
+    public boolean delete(long reservationid) {
         return reservationRepository.remove(reservationid);
     }
 }

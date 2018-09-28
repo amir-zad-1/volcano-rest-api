@@ -6,10 +6,10 @@ import java.util.List;
 
 public interface GenericRepositoryContract<T extends Entity>  {
 
-    T getById(int id);
+    T getById(long id);
     List<T> getAll();
     T add(T item);
     T update(T item);
-    boolean remove(int id);
+    boolean remove(long id);
 
 }

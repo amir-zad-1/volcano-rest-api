@@ -35,6 +35,23 @@ public class ReservationController implements ReservationControllerContract {
         return response;
     }
 
+    @ResponseBody
+    @GetMapping("/{reservationid}")
+    @Override
+    public ApiJsonResponse<ReservationDto> getById(@PathVariable("reservationid") long reservationid) {
+        if (reservationid < 1) {
+            throw new Http404Exception();
+        }
+        Reservation reservation = reservationService.get(reservationid);
+        if (reservation == null) {
+            throw new Http404Exception();
+        }
+        ApiJsonResponse<ReservationDto> response = new ApiJsonResponse<>();
+        ReservationMapper reservationMapper = new ReservationMapper();
+        response.setBody(reservationMapper.mapToDto(reservation));
+        return response;
+    }
+
     @Override
     @ResponseBody
     @PostMapping("")
