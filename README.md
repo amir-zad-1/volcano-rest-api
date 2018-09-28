@@ -7,10 +7,8 @@
     # Not implemented yet!
     
 #### Run the project
-    ```bash
     mvn spring-boot:run
     curl localhost:8080
-    ```
 
 #### Endpoints
      1. http://localhost:8080/ [GET]
