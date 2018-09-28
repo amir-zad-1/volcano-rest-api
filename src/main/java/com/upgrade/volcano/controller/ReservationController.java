@@ -9,6 +9,7 @@ import com.upgrade.volcano.model.ReservationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -37,15 +38,54 @@ public class ReservationController implements ReservationControllerContract {
     @Override
     @ResponseBody
     @PostMapping("")
-    public ApiJsonResponse<ReservationDto> post(@RequestBody ReservationDto reservationDto) {
+    public ApiJsonResponse<ReservationDto> post(@RequestBody ReservationDto reservationDto, HttpServletResponse httpresponse) {
+        if (reservationDto.getId() > 0) {
+            throw new Http500Exception();
+        }
         ReservationMapper reservationMapper = new ReservationMapper();
         Reservation reservationEntity = reservationMapper.mapToEntity(reservationDto);
-        Reservation savedReservation = reservationService.add(reservationEntity);
-        ReservationDto savedReservationDto = reservationMapper.mapToDto(savedReservation);
+        Reservation createReservation = reservationService.add(reservationEntity);
+        ReservationDto createReservationDto = reservationMapper.mapToDto(createReservation);
 
         ApiJsonResponse<ReservationDto> response = new ApiJsonResponse<>();
-        response.setBody(savedReservationDto);
+        response.setBody(createReservationDto);
+        httpresponse.setStatus(HttpServletResponse.SC_CREATED);
         return response;
+    }
+
+    @Override
+    @ResponseBody
+    @PutMapping("")
+    public ApiJsonResponse<ReservationDto> put(@RequestBody ReservationDto reservationDto, HttpServletResponse httpservletresponse) {
+        if (reservationDto.getId() == 0) {
+            throw new Http500Exception();
+        }
+        ReservationMapper reservationMapper = new ReservationMapper();
+        Reservation reservationEntity = reservationMapper.mapToEntity(reservationDto);
+        Reservation updateReservation = reservationService.update(reservationEntity);
+        if (updateReservation == null) {
+            httpservletresponse.setStatus(HttpServletResponse.SC_NOT_FOUND);
+            return null;
+        } else {
+            ReservationDto updateReservationDto = reservationMapper.mapToDto(updateReservation);
+            ApiJsonResponse<ReservationDto> response = new ApiJsonResponse<>();
+            response.setBody(updateReservationDto);
+            httpservletresponse.setStatus(HttpServletResponse.SC_OK);
+            return response;
+        }
+    }
+
+    @Override
+    @ResponseBody
+    @DeleteMapping("")
+    public ApiJsonResponse<Boolean> delete(@RequestBody ReservationDto reservationDto, HttpServletResponse httpservletresponse) {
+        boolean deleteResult = reservationService.delete(reservationDto.getId());
+        if (deleteResult) {
+            httpservletresponse.setStatus(HttpServletResponse.SC_NO_CONTENT);
+        } else {
+            httpservletresponse.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        }
+        return null;
     }
 
 }

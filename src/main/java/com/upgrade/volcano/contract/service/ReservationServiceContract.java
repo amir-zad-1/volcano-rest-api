@@ -8,5 +8,7 @@ public interface ReservationServiceContract {
 
     List<Reservation> getAll();
     Reservation add(Reservation reservation);
+    Reservation update(Reservation reservation);
+    boolean delete(int reservationid);
 
 }

@@ -24,4 +24,14 @@ public class ReservationService implements ReservationServiceContract {
     public Reservation add(Reservation reservation) {  // todo: validation
         return reservationRepository.add(reservation);
     }
+
+    @Override
+    public Reservation update(Reservation reservation) {
+        return reservationRepository.update(reservation);
+    }
+
+    @Override
+    public boolean delete(int reservationid) {
+        return reservationRepository.remove(reservationid);
+    }
 }

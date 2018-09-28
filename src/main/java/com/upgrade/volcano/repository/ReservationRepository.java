@@ -39,11 +39,21 @@ public class ReservationRepository implements ReservationRepositoryContract {
 
     @Override
     public Reservation update(Reservation item) {
-        return null;
+        if (this.database.containsKey(item.getId())) {
+            this.database.put(item.getId(), item);
+            return item;
+        } else {
+            return null;
+        }
     }
 
     @Override
     public boolean remove(int id) {
-        return false;
+        if (this.database.containsKey(id)) {
+            this.database.remove(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 }
