@@ -1,7 +1,7 @@
 package com.upgrade.volcano.repository;
 
 import com.upgrade.volcano.contract.repository.ReservationRepositoryContract;
-import com.upgrade.volcano.entity.Customer;
+import com.upgrade.volcano.entity.User;
 import com.upgrade.volcano.entity.Reservation;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +20,7 @@ public class ReservationRepository implements ReservationRepositoryContract<Rese
     public List<Reservation> getAll() {
         List<Reservation> list = new ArrayList<>();
         Reservation reservation = new Reservation();
-        reservation.setCustomer(new Customer("Amir", "Hosseinzadeh", "am1hosseinzadeh@gmail.com"));
+        reservation.setCustomer(new User(1,"Amir", "Hosseinzadeh", "am1hosseinzadeh@gmail.com"));
         reservation.setId(1);
         reservation.setArrivalDateUTC(new Date());
         reservation.setDepartureDateUTC(new Date());

@@ -31,8 +31,6 @@ public class ReservationController implements ReservationControllerContract {
     public ApiJsonResponse<List<ReservationDto>> getAllReservations() {
 
         ApiJsonResponse<List<ReservationDto>> response = new ApiJsonResponse<>();
-        response.setIsOk(true);
-
 
         List<Reservation> reservationList = reservationService.getAll();
         List<ReservationDto> reservationDtos = reservationList.stream()

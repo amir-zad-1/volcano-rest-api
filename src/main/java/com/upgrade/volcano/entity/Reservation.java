@@ -6,7 +6,7 @@ public class Reservation extends Model{
 
     private int id;
     private Date reservationDateUTC;
-    private Customer customer;
+    private User customer;
     private Date arrivalDateUTC;
     private Date departureDateUTC;
 
@@ -29,11 +29,11 @@ public class Reservation extends Model{
         this.reservationDateUTC = reservationDateUTC;
     }
 
-    public Customer getCustomer() {
+    public User getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    public void setCustomer(User customer) {
         this.customer = customer;
     }
 

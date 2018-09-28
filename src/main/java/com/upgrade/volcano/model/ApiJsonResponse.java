@@ -5,14 +5,12 @@ import java.util.Date;
 public class ApiJsonResponse<T> {
 
     private T body;
-    private boolean isOk;
     private Date utcDatetime;
 
     public ApiJsonResponse() {
     }
 
-    public ApiJsonResponse(boolean ok, T response) {
-        this.isOk = ok;
+    public ApiJsonResponse(T response) {
         this.body = response;
         this.utcDatetime = new Date();
     }
@@ -24,14 +22,6 @@ public class ApiJsonResponse<T> {
 
     public T getBody() {
         return this.body;
-    }
-
-    public void setIsOk(boolean isOk) {
-        this.isOk = isOk;
-    }
-
-    public boolean getIsOk() {
-        return this.isOk;
     }
 
     public Date getUtcDatetime() {

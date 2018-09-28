@@ -17,7 +17,6 @@ public class HomeController {
         ApiJsonResponse<RootRouteDto> response = new ApiJsonResponse<>();
         RootRouteDto responseBody = new RootRouteDto("Volcano RESTful API 0.1.0");
         response.setBody(responseBody);
-        response.setIsOk(true);
         return response;
     }
 

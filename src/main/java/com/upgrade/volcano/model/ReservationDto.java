@@ -1,7 +1,5 @@
 package com.upgrade.volcano.model;
 
-import com.upgrade.volcano.entity.Customer;
-
 import java.util.Date;
 
 public class ReservationDto {
