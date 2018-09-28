@@ -1,7 +1,10 @@
 # Volcano REST-API Service 
 
-#### Run the tests (integration and unit)
+#### Run the unit tests
     mvn test
+
+#### Run the integration tests
+    # Not implemented yet!
     
 #### Run the project
     mvn spring-boot:run
