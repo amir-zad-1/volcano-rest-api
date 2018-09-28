@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan("com.upgrade.volcano")
+@ComponentScan
 public class VolcanoApplication {
 
     public static void main(String[] args) {
