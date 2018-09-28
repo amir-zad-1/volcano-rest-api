@@ -1,16 +1,22 @@
 package com.upgrade.volcano.repository;
 
 import com.upgrade.volcano.contract.repository.ReservationRepositoryContract;
-import com.upgrade.volcano.entity.User;
 import com.upgrade.volcano.entity.Reservation;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 
 @Repository
-public class ReservationRepository implements ReservationRepositoryContract<Reservation> {
+public class ReservationRepository implements ReservationRepositoryContract {
+
+    private HashMap<Integer, Reservation> database;
+
+    public ReservationRepository() {
+        this.database = new HashMap<>();
+    }
+
     @Override
     public Reservation getById(int id) {
         return null;
@@ -18,25 +24,22 @@ public class ReservationRepository implements ReservationRepositoryContract<Rese
 
     @Override
     public List<Reservation> getAll() {
-        List<Reservation> list = new ArrayList<>();
-        Reservation reservation = new Reservation();
-        reservation.setCustomer(new User(1,"Amir", "Hosseinzadeh", "am1hosseinzadeh@gmail.com"));
-        reservation.setId(1);
-        reservation.setArrivalDateUTC(new Date());
-        reservation.setDepartureDateUTC(new Date());
-        reservation.setReservationDateUTC(new Date());
-        list.add(reservation);
-        return list;
+        return new ArrayList<>(this.database.values());
     }
 
     @Override
-    public boolean add(Reservation item) {
-        return false;
+    public Reservation add(Reservation item) {
+        int id = item.hashCode();
+        if (item.getId() == 0) {
+            item.setId(id);
+        }
+        this.database.put(id, item);
+        return item;
     }
 
     @Override
-    public boolean update(Reservation item) {
-        return false;
+    public Reservation update(Reservation item) {
+        return null;
     }
 
     @Override

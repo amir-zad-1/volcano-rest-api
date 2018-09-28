@@ -7,5 +7,6 @@ import java.util.List;
 
 public interface ReservationControllerContract {
 
-    ApiJsonResponse<List<ReservationDto>> getAllReservations();
+    ApiJsonResponse<List<ReservationDto>> get();
+    ApiJsonResponse<ReservationDto> post(ReservationDto reservation);
 }

@@ -13,7 +13,7 @@ public class ReservationMapper implements MapperContract<Reservation, Reservatio
 
         reservationDto.setId(entity.getId());
         reservationDto.setArrivalDateUTC(entity.getArrivalDateUTC());
-        reservationDto.setCustomerEmail(entity.getCustomer().getEmail());
+        reservationDto.setCustomerEmail(entity.getEmail());
         reservationDto.setDepartureDateUTC(entity.getDepartureDateUTC());
         reservationDto.setReservationDateUTC(entity.getReservationDateUTC());
 
@@ -22,6 +22,13 @@ public class ReservationMapper implements MapperContract<Reservation, Reservatio
 
     @Override
     public Reservation mapToEntity(ReservationDto dto) {
-        return null;
+        Reservation reservationEntity = new Reservation();
+        reservationEntity.setId(dto.getId());
+        reservationEntity.setReservationDateUTC(dto.getReservationDateUTC());
+        reservationEntity.setArrivalDateUTC(dto.getArrivalDateUTC());
+        reservationEntity.setDepartureDateUTC(dto.getDepartureDateUTC());
+        reservationEntity.setEmail(dto.getCustomerEmail());
+
+        return reservationEntity;
     }
 }

@@ -1,6 +1,6 @@
 package com.upgrade.volcano.contract.repository;
 
-import com.upgrade.volcano.entity.Model;
+import com.upgrade.volcano.entity.Reservation;
 
-public interface ReservationRepositoryContract<T extends Model> extends GenericRepositoryContract<T> {
+public interface ReservationRepositoryContract extends GenericRepositoryContract<Reservation> {
 }

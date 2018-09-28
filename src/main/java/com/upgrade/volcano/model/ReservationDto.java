@@ -50,6 +50,4 @@ public class ReservationDto {
         this.departureDateUTC = departureDateUTC;
     }
 
-
-
 }

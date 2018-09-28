@@ -5,7 +5,7 @@ import com.upgrade.volcano.entity.User;
 
 import java.util.List;
 
-public class UserRepository implements UserRepositoryContract<User> {
+public class UserRepository implements UserRepositoryContract {
     @Override
     public User getById(int id) {
         return null;
@@ -17,13 +17,13 @@ public class UserRepository implements UserRepositoryContract<User> {
     }
 
     @Override
-    public boolean add(User item) {
-        return false;
+    public User add(User item) {
+        return null;
     }
 
     @Override
-    public boolean update(User item) {
-        return false;
+    public User update(User item) {
+        return null;
     }
 
     @Override

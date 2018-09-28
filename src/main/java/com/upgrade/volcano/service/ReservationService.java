@@ -19,4 +19,9 @@ public class ReservationService implements ReservationServiceContract {
     public List<Reservation> getAll() {
         return reservationRepository.getAll();
     }
+
+    @Override
+    public Reservation add(Reservation reservation) {  // todo: validation
+        return reservationRepository.add(reservation);
+    }
 }

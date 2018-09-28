@@ -1,6 +1,6 @@
 package com.upgrade.volcano.entity;
 
-public class User extends Model {
+public class User extends Entity {
 
 
     private int id;

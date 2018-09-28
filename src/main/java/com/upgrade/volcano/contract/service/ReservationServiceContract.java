@@ -7,5 +7,6 @@ import java.util.List;
 public interface ReservationServiceContract {
 
     List<Reservation> getAll();
+    Reservation add(Reservation reservation);
 
 }

@@ -2,16 +2,13 @@ package com.upgrade.volcano.entity;
 
 import java.util.Date;
 
-public class Reservation extends Model{
+public class Reservation extends Entity {
 
     private int id;
     private Date reservationDateUTC;
-    private User customer;
+    private String email;
     private Date arrivalDateUTC;
     private Date departureDateUTC;
-
-    public Reservation() {
-    }
 
     public int getId() {
         return id;
@@ -29,12 +26,12 @@ public class Reservation extends Model{
         this.reservationDateUTC = reservationDateUTC;
     }
 
-    public User getCustomer() {
-        return customer;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCustomer(User customer) {
-        this.customer = customer;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Date getArrivalDateUTC() {
