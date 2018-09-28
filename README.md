@@ -1,8 +1,8 @@
 # Volcano REST-API Service 
 
-#### run the project
+#### Run the project
     mvn spring-boot:run
     curl localhost:8080
     
-#### run the tests (integration and unit)
-    // not implemented yet
+#### Run the tests (integration and unit)
+    mvn test
