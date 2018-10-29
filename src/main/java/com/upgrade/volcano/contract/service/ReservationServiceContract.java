@@ -1,6 +1,6 @@
 package com.upgrade.volcano.contract.service;
 
-import com.upgrade.volcano.entity.Reservation;
+import com.upgrade.volcano.model.entity.Reservation;
 
 import java.util.List;
 

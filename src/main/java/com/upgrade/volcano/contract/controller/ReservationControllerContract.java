@@ -1,7 +1,7 @@
 package com.upgrade.volcano.contract.controller;
 
-import com.upgrade.volcano.model.ApiJsonResponse;
-import com.upgrade.volcano.model.ReservationDto;
+import com.upgrade.volcano.model.dto.ApiJsonResponse;
+import com.upgrade.volcano.model.dto.ReservationDto;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpServletResponse;

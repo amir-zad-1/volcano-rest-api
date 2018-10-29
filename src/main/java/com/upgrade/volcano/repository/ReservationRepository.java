@@ -1,7 +1,7 @@
 package com.upgrade.volcano.repository;
 
 import com.upgrade.volcano.contract.repository.ReservationRepositoryContract;
-import com.upgrade.volcano.entity.Reservation;
+import com.upgrade.volcano.model.entity.Reservation;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;

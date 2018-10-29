@@ -2,10 +2,10 @@ package com.upgrade.volcano.controller;
 
 import com.upgrade.volcano.contract.controller.ReservationControllerContract;
 import com.upgrade.volcano.contract.service.ReservationServiceContract;
-import com.upgrade.volcano.entity.Reservation;
-import com.upgrade.volcano.mapper.ReservationMapper;
-import com.upgrade.volcano.model.ApiJsonResponse;
-import com.upgrade.volcano.model.ReservationDto;
+import com.upgrade.volcano.model.entity.Reservation;
+import com.upgrade.volcano.model.mapper.ReservationMapper;
+import com.upgrade.volcano.model.dto.ApiJsonResponse;
+import com.upgrade.volcano.model.dto.ReservationDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

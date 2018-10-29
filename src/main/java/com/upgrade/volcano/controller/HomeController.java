@@ -1,7 +1,7 @@
 package com.upgrade.volcano.controller;
 
-import com.upgrade.volcano.model.ApiJsonResponse;
-import com.upgrade.volcano.model.RootRouteDto;
+import com.upgrade.volcano.model.dto.ApiJsonResponse;
+import com.upgrade.volcano.model.dto.RootRouteDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;

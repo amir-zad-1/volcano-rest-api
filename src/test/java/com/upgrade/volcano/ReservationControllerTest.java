@@ -1,7 +1,7 @@
 package com.upgrade.volcano;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.upgrade.volcano.model.ReservationDto;
+import com.upgrade.volcano.model.dto.ReservationDto;
 import org.hamcrest.Matchers;
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,15 +23,12 @@ import javax.servlet.ServletContext;
 import java.nio.charset.Charset;
 import java.util.Date;
 
-import static org.hamcrest.Matchers.greaterThan;
 import static org.hamcrest.Matchers.hasSize;
-import static org.springframework.test.web.client.match.MockRestRequestMatchers.content;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.util.MimeTypeUtils.APPLICATION_JSON;
 
 @SpringBootApplication
 class ApplicationTest {

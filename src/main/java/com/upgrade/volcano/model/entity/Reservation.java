@@ -1,14 +1,33 @@
-package com.upgrade.volcano.model;
+package com.upgrade.volcano.model.entity;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
-public class ReservationDto {
+@Entity
+public class Reservation extends BaseEntity {
 
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
+
     private Date reservationDateUTC;
-    private String customerEmail;
+
+    @NotBlank(message = "Please enter your Email.")
+    private String email;
+
+    @NotNull(message = "Please enter the arrival date.")
     private Date arrivalDateUTC;
+
+    @NotNull(message = "Please enter the departure date.")
     private Date departureDateUTC;
+
+    public Reservation() {
+    }
 
     public long getId() {
         return id;
@@ -26,12 +45,12 @@ public class ReservationDto {
         this.reservationDateUTC = reservationDateUTC;
     }
 
-    public String getCustomerEmail() {
-        return customerEmail;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCustomerEmail(String customerEmail) {
-        this.customerEmail = customerEmail;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Date getArrivalDateUTC() {
@@ -49,5 +68,6 @@ public class ReservationDto {
     public void setDepartureDateUTC(Date departureDateUTC) {
         this.departureDateUTC = departureDateUTC;
     }
+
 
 }

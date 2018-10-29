@@ -1,4 +1,4 @@
-package com.upgrade.volcano.model;
+package com.upgrade.volcano.model.dto;
 
 public class RootRouteDto {
 

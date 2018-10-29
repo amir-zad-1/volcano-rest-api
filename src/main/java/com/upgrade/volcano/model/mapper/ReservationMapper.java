@@ -1,8 +1,8 @@
-package com.upgrade.volcano.mapper;
+package com.upgrade.volcano.model.mapper;
 
 import com.upgrade.volcano.contract.mapper.MapperContract;
-import com.upgrade.volcano.entity.Reservation;
-import com.upgrade.volcano.model.ReservationDto;
+import com.upgrade.volcano.model.entity.Reservation;
+import com.upgrade.volcano.model.dto.ReservationDto;
 
 public class ReservationMapper implements MapperContract<Reservation, ReservationDto> {
 
