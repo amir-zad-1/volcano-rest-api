@@ -29,6 +29,13 @@ public class Reservation extends BaseEntity {
     public Reservation() {
     }
 
+    public Reservation (Long id, String email, Date arrivalDate, Date departureDate) {
+        this.id = id;
+        this.email = email;
+        this.arrivalDateUTC = arrivalDate;
+        this.departureDateUTC = departureDate;
+    }
+
     public long getId() {
         return id;
     }

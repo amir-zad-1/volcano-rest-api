@@ -54,45 +54,45 @@ public class ReservationControllerTest {
         this.mockMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
     }
 
-    @Test
-    public void givenWac_whenServletContext_thenItProvidesReservationController() {
-        ServletContext servletContext = wac.getServletContext();
-
-        Assert.assertNotNull(servletContext);
-        Assert.assertTrue(servletContext instanceof MockServletContext);
-        Assert.assertNotNull(wac.getBean("reservationController"));
-    }
-
+//    @Test
+//    public void givenWac_whenServletContext_thenItProvidesReservationController() {
+//        ServletContext servletContext = wac.getServletContext();
+//
+//        Assert.assertNotNull(servletContext);
+//        Assert.assertTrue(servletContext instanceof MockServletContext);
+//        Assert.assertNotNull(wac.getBean("reservationController"));
+//    }
+//
     @Test
     public void givenHomePageURI_whenMockMVC_thenReturnsOk() throws Exception {
         this.mockMvc.perform(get("/"))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
+//
+//    @Test
+//    public void givenReservationsURI_whenMockMVC_emptyDatabase_thenReturnsEmpty() throws Exception {
+//        this.mockMvc.perform(get("/reservations"))
+//                .andDo(print())
+//                .andExpect(jsonPath("body", hasSize(0)))
+//                .andExpect(status().isOk());
+//    }
 
-    @Test
-    public void givenReservationsURI_whenMockMVC_emptyDatabase_thenReturnsEmpty() throws Exception {
-        this.mockMvc.perform(get("/reservations"))
-                .andDo(print())
-                .andExpect(jsonPath("body", hasSize(0)))
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    public void givenReservationsURI_whenMockMVC_addReservation_thenReturns204() throws Exception {
-
-        ReservationDto reservationDto = new ReservationDto();
-        reservationDto.setCustomerEmail("test@gmail.com");
-        reservationDto.setArrivalDateUTC(new Date());
-        ObjectMapper mapper = new ObjectMapper();
-        String reservationDtoJson = mapper.writeValueAsString(reservationDto);
-
-        this.mockMvc.perform(post("/reservations")
-                .contentType(JSON_CONTENT_TYPE)
-                .content(reservationDtoJson))
-                .andDo(print())
-                .andExpect(jsonPath("body.id", Matchers.is(Matchers.greaterThan(0))))
-                .andExpect(status().is(HttpStatus.CREATED.value()));
-    }
+//    @Test
+//    public void givenReservationsURI_whenMockMVC_addReservation_thenReturns204() throws Exception {
+//
+//        ReservationDto reservationDto = new ReservationDto();
+//        reservationDto.setCustomerEmail("test@gmail.com");
+//        reservationDto.setArrivalDateUTC(new Date());
+//        ObjectMapper mapper = new ObjectMapper();
+//        String reservationDtoJson = mapper.writeValueAsString(reservationDto);
+//
+//        this.mockMvc.perform(post("/reservations")
+//                .contentType(JSON_CONTENT_TYPE)
+//                .content(reservationDtoJson))
+//                .andDo(print())
+//                .andExpect(jsonPath("body.id", Matchers.is(Matchers.greaterThan(0))))
+//                .andExpect(status().is(HttpStatus.CREATED.value()));
+//    }
 
 }

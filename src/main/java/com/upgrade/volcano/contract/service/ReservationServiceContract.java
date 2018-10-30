@@ -2,14 +2,25 @@ package com.upgrade.volcano.contract.service;
 
 import com.upgrade.volcano.model.entity.Reservation;
 
+import java.util.Date;
 import java.util.List;
 
 public interface ReservationServiceContract {
 
     List<Reservation> getAll();
-    Reservation get(long reservationid);
-    Reservation add(Reservation reservation);
-    Reservation update(Reservation reservation);
-    boolean delete(long reservationid);
+
+//    Reservation getById(Long reservationId);
+//
+//    List<Date> getAvailableDates();
+//
+//    List<Date> getAvailableDates(Date startDate, Date endDate);
+//
+//    Boolean validate(Reservation reservation);
+//
+//    Boolean reserve(Reservation reservation);
+//
+//    Boolean update(Reservation reservation);
+//
+//    Boolean cancel(Reservation reservation);
 
 }
