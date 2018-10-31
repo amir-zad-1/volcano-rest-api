@@ -1,29 +1,22 @@
 package com.upgrade.volcano.model.dto;
 
+import com.upgrade.volcano.model.entity.Reservation;
+
 import java.util.Date;
 
 public class ReservationDto {
 
-    private long id;
-    private Date reservationDateUTC;
     private String customerEmail;
-    private Date arrivalDateUTC;
-    private Date departureDateUTC;
+    private Date arrivalDate;
+    private Date departureDate;
 
-    public long getId() {
-        return id;
+    public ReservationDto() {
     }
 
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Date getReservationDateUTC() {
-        return reservationDateUTC;
-    }
-
-    public void setReservationDateUTC(Date reservationDateUTC) {
-        this.reservationDateUTC = reservationDateUTC;
+    public ReservationDto(Reservation reservation) {
+        this.setArrivalDate(reservation.getArrivalDate());
+        this.setCustomerEmail(reservation.getEmail());
+        this.setDepartureDate(reservation.getDepartureDate());
     }
 
     public String getCustomerEmail() {
@@ -34,20 +27,20 @@ public class ReservationDto {
         this.customerEmail = customerEmail;
     }
 
-    public Date getArrivalDateUTC() {
-        return arrivalDateUTC;
+    public Date getArrivalDate() {
+        return arrivalDate;
     }
 
-    public void setArrivalDateUTC(Date arrivalDateUTC) {
-        this.arrivalDateUTC = arrivalDateUTC;
+    public void setArrivalDate(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
     }
 
-    public Date getDepartureDateUTC() {
-        return departureDateUTC;
+    public Date getDepartureDate() {
+        return departureDate;
     }
 
-    public void setDepartureDateUTC(Date departureDateUTC) {
-        this.departureDateUTC = departureDateUTC;
+    public void setDepartureDate(Date departureDate) {
+        this.departureDate = departureDate;
     }
 
 }

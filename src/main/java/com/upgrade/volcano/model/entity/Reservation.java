@@ -15,16 +15,16 @@ public class Reservation extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private Date reservationDateUTC;
+    private Date reservationDate;
 
     @NotBlank(message = "Please enter your Email.")
     private String email;
 
     @NotNull(message = "Please enter the arrival date.")
-    private Date arrivalDateUTC;
+    private Date arrivalDate;
 
     @NotNull(message = "Please enter the departure date.")
-    private Date departureDateUTC;
+    private Date departureDate;
 
     public Reservation() {
     }
@@ -32,8 +32,8 @@ public class Reservation extends BaseEntity {
     public Reservation (Long id, String email, Date arrivalDate, Date departureDate) {
         this.id = id;
         this.email = email;
-        this.arrivalDateUTC = arrivalDate;
-        this.departureDateUTC = departureDate;
+        this.arrivalDate = arrivalDate;
+        this.departureDate = departureDate;
     }
 
     public long getId() {
@@ -44,12 +44,12 @@ public class Reservation extends BaseEntity {
         this.id = id;
     }
 
-    public Date getReservationDateUTC() {
-        return reservationDateUTC;
+    public Date getReservationDate() {
+        return reservationDate;
     }
 
-    public void setReservationDateUTC(Date reservationDateUTC) {
-        this.reservationDateUTC = reservationDateUTC;
+    public void setReservationDate(Date reservationDate) {
+        this.reservationDate = reservationDate;
     }
 
     public String getEmail() {
@@ -60,20 +60,20 @@ public class Reservation extends BaseEntity {
         this.email = email;
     }
 
-    public Date getArrivalDateUTC() {
-        return arrivalDateUTC;
+    public Date getArrivalDate() {
+        return arrivalDate;
     }
 
-    public void setArrivalDateUTC(Date arrivalDateUTC) {
-        this.arrivalDateUTC = arrivalDateUTC;
+    public void setArrivalDate(Date arrivalDate) {
+        this.arrivalDate = arrivalDate;
     }
 
-    public Date getDepartureDateUTC() {
-        return departureDateUTC;
+    public Date getDepartureDate() {
+        return departureDate;
     }
 
-    public void setDepartureDateUTC(Date departureDateUTC) {
-        this.departureDateUTC = departureDateUTC;
+    public void setDepartureDate(Date departureDate) {
+        this.departureDate = departureDate;
     }
 
 
