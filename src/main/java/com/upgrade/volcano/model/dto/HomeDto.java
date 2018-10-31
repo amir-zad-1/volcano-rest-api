@@ -1,10 +1,10 @@
 package com.upgrade.volcano.model.dto;
 
-public class RootRouteDto {
+public class HomeDto {
 
     private String message;
 
-    public RootRouteDto(String msg) {
+    public HomeDto(String msg) {
         this.message = msg;
     }
 

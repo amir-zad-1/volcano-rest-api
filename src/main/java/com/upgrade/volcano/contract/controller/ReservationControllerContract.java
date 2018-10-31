@@ -1,6 +1,5 @@
 package com.upgrade.volcano.contract.controller;
 
-import com.upgrade.volcano.model.dto.ApiJsonResponse;
 import com.upgrade.volcano.model.dto.ReservationDto;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -9,9 +8,9 @@ import java.util.List;
 
 public interface ReservationControllerContract {
 
-    ApiJsonResponse<List<ReservationDto>> get();
-    ApiJsonResponse<ReservationDto> getById(@PathVariable("userid") long userid);
-    ApiJsonResponse<ReservationDto> post(ReservationDto reservation, HttpServletResponse httpservletresponse);
-    ApiJsonResponse<ReservationDto> put(ReservationDto reservation, HttpServletResponse httpservletresponse);
-    ApiJsonResponse<Boolean> delete(ReservationDto reservation, HttpServletResponse httpservletresponse);
+    List<ReservationDto> get();
+    ReservationDto getById(@PathVariable("userid") long userid);
+    ReservationDto post(ReservationDto reservation, HttpServletResponse httpservletresponse);
+    ReservationDto put(ReservationDto reservation, HttpServletResponse httpservletresponse);
+    Boolean delete(ReservationDto reservation, HttpServletResponse httpservletresponse);
 }

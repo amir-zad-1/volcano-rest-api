@@ -2,7 +2,6 @@ package com.upgrade.volcano.controller;
 
 import com.upgrade.volcano.contract.controller.ReservationControllerContract;
 import com.upgrade.volcano.contract.service.ReservationServiceContract;
-import com.upgrade.volcano.model.dto.ApiJsonResponse;
 import com.upgrade.volcano.model.dto.ReservationDto;
 import com.upgrade.volcano.model.entity.Reservation;
 import com.upgrade.volcano.model.mapper.ReservationMapper;
@@ -24,21 +23,18 @@ public class ReservationController implements ReservationControllerContract {
     @ResponseBody
     @GetMapping("")
     @Override
-    public ApiJsonResponse<List<ReservationDto>> get() {
+    public List<ReservationDto> get() {
         List<Reservation> reservationList = reservationService.getAll();
         List<ReservationDto> reservationDtoList = reservationList.stream()
                 .map(reservation -> new ReservationMapper().mapToDto(reservation))
                 .collect(Collectors.toList());
-
-        ApiJsonResponse<List<ReservationDto>> response = new ApiJsonResponse<>();
-        response.setBody(reservationDtoList);
-        return response;
+        return reservationDtoList;
     }
 
     @ResponseBody
     @GetMapping("/{reservationid}")
     @Override
-    public ApiJsonResponse<ReservationDto> getById(@PathVariable("reservationid") long reservationid) {
+    public ReservationDto getById(@PathVariable("reservationid") long reservationid) {
 //        if (reservationid < 1) {
 //            throw new Http404Exception();
 //        }
@@ -56,7 +52,7 @@ public class ReservationController implements ReservationControllerContract {
     @Override
     @ResponseBody
     @PostMapping("")
-    public ApiJsonResponse<ReservationDto> post(@RequestBody ReservationDto reservationDto, HttpServletResponse httpresponse) {
+    public ReservationDto post(@RequestBody ReservationDto reservationDto, HttpServletResponse httpresponse) {
 //        if (reservationDto.getId() > 0) {
 //            throw new Http500Exception();
 //        }
@@ -75,7 +71,7 @@ public class ReservationController implements ReservationControllerContract {
     @Override
     @ResponseBody
     @PutMapping("")
-    public ApiJsonResponse<ReservationDto> put(@RequestBody ReservationDto reservationDto, HttpServletResponse httpservletresponse) {
+    public ReservationDto put(@RequestBody ReservationDto reservationDto, HttpServletResponse httpservletresponse) {
 //        if (reservationDto.getId() == 0) {
 //            throw new Http500Exception();
 //        }
@@ -98,7 +94,7 @@ public class ReservationController implements ReservationControllerContract {
     @Override
     @ResponseBody
     @DeleteMapping("")
-    public ApiJsonResponse<Boolean> delete(@RequestBody ReservationDto reservationDto, HttpServletResponse httpservletresponse) {
+    public Boolean delete(@RequestBody ReservationDto reservationDto, HttpServletResponse httpservletresponse) {
 //        boolean deleteResult = reservationService.delete(reservationDto.getId());
 //        if (deleteResult) {
 //            httpservletresponse.setStatus(HttpServletResponse.SC_NO_CONTENT);
