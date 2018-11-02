@@ -1,8 +1,6 @@
 package com.upgrade.volcano.contract.controller;
 
-import com.upgrade.volcano.model.dto.ReservationDto;
-import com.upgrade.volcano.model.dto.ReservationRequestDto;
-import com.upgrade.volcano.model.dto.ReservationResponseDto;
+import com.upgrade.volcano.model.dto.*;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import javax.servlet.http.HttpServletResponse;
@@ -13,13 +11,13 @@ public interface ReservationControllerContract {
 
     List<Date> getAvailableDates ();
 
-    List<ReservationDto> getAll ();
+    List<ReservationResponseDto> getAll ();
 
-    ReservationDto getById(long reservationid);
+    ReservationResponseDto getById(long reservationid);
 
     ReservationResponseDto book(ReservationRequestDto reservationRequest);
 
-    ReservationResponseDto update(ReservationRequestDto reservationRequest);
+    ReservationResponseDto update(ReservationUpdateRequestDto reservationRequest);
 
-    Boolean cancel(long reservationid);
+    ReservationCancelResponse cancel(long reservationid);
 }

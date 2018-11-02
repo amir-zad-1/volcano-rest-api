@@ -11,9 +11,11 @@ public interface ReservationServiceContract {
 //    List<Date> getAvailableDates(Date startDate, Date endDate);
 
     Reservation book(Reservation reservation);
-//
-//    Reservation update(Reservation reservation);
-//
-//    Boolean cancel(Reservation reservation);
+
+    Reservation update(Reservation reservation);
+
+    Boolean cancel(Long reservationid);
+
+    Reservation getById(Long reservationid);
 
 }

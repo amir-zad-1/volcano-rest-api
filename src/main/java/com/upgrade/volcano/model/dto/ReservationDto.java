@@ -4,12 +4,12 @@ import com.upgrade.volcano.model.entity.Reservation;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.TimeZone;
 
 public class ReservationDto {
 
     private String customerEmail;
     private String arrivalDate;
+    private Date reservationDate;
     private int duration;
 
     public ReservationDto() {
@@ -45,5 +45,23 @@ public class ReservationDto {
         this.duration = duration;
     }
 
+    public Date getReservationDate() {
+        return reservationDate;
+    }
 
+    public void setReservationDate(Date reservationDate) {
+        this.reservationDate = reservationDate;
+    }
+
+    public Reservation toRersevation() {
+
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+
+        try {
+            Date arrivalDate = simpleDateFormat.parse(this.getArrivalDate());
+            return new Reservation(null, this.getCustomerEmail(), arrivalDate, this.getDuration());
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }
