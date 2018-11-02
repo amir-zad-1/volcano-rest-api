@@ -21,5 +21,5 @@ public interface ReservationControllerContract {
 
     ReservationResponseDto update(ReservationRequestDto reservationRequest);
 
-    ReservationResponseDto cancel(long reservationid);
+    Boolean cancel(long reservationid);
 }

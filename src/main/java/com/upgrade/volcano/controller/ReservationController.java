@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -29,7 +30,7 @@ public class ReservationController implements ReservationControllerContract {
     @ResponseBody
     @GetMapping("/availabledates")
     @Override
-    public List<Date> getAvailableDates () {
+    public List<Date> getAvailableDates() {
         return calendarService.getAvailableDates();
     }
 
@@ -47,33 +48,28 @@ public class ReservationController implements ReservationControllerContract {
     @PostMapping("")
     @Override
     public ReservationResponseDto book(@Valid @RequestBody ReservationRequestDto reservationRequest) {
-        Reservation r = new Reservation(10L, reservationRequest.getCustomerEmail(),
-                reservationRequest.getArrivalDate(),
-                reservationRequest.getArrivalDate()
-        );
-        return new ReservationResponseDto(r);
+        Reservation reservation;
+        try {
+            reservation = reservationRequest.toResevation();
+            this.reservationService.book(reservation);
+        } catch (NotValidException | NotAvailableException e) {
+            throw new Http400Exception(e.getMessage());
+        }
+        return new ReservationResponseDto(reservation);
     }
 
     @ResponseBody
     @PutMapping("")
     @Override
     public ReservationResponseDto update(@Valid @RequestBody ReservationRequestDto reservationRequest) {
-        Reservation r = new Reservation(11L, reservationRequest.getCustomerEmail(),
-                reservationRequest.getArrivalDate(),
-                reservationRequest.getArrivalDate()
-        );
-        return new ReservationResponseDto(r);
+        return null;
     }
 
     @ResponseBody
     @DeleteMapping("/{reservationid}")
     @Override
-    public ReservationResponseDto cancel(@PathVariable("reservationid") long reservationid) {
-        Reservation r = new Reservation(12L, "email",
-                new Date(),
-                new Date()
-        );
-        return new ReservationResponseDto(r);
+    public Boolean cancel(@PathVariable("reservationid") long reservationid) {
+        return false;
     }
 
 
@@ -81,11 +77,7 @@ public class ReservationController implements ReservationControllerContract {
     @GetMapping("/{reservationid}")
     @Override
     public ReservationDto getById(@PathVariable("reservationid") long reservationid) {
-        Reservation r = new Reservation(13L, "email",
-                new Date(),
-                new Date()
-        );
-        return new ReservationResponseDto(r);
+        return null;
     }
 
 }

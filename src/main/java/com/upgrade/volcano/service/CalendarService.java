@@ -19,6 +19,9 @@ public class CalendarService implements CalendarServiceContract {
     @Autowired
     CalendarRepository calendarRepository;
 
+    @Autowired
+    DateUtility dateUtility;
+
 
     private void reset() {
         this.calendarRepository.deleteAll();
@@ -27,13 +30,7 @@ public class CalendarService implements CalendarServiceContract {
     @Override
     public void initialize() {
 
-        Calendar calendar = Calendar.getInstance();
-        Date now = new Date();
-        calendar.setTime(now);
-        calendar.set(Calendar.HOUR_OF_DAY, 0);
-        calendar.set(Calendar.MINUTE, 0);
-        calendar.set(Calendar.SECOND, 0);
-        calendar.set(Calendar.MILLISECOND, 0);
+        Calendar calendar = this.dateUtility.getCalendar(new Date());
 
         this.reset();
 
@@ -48,7 +45,38 @@ public class CalendarService implements CalendarServiceContract {
         return this.calendarRepository
                 .findByIsAvailable(true)
                 .stream()
-                .map(ReservationCalendar::getDay)
+                .map(ReservationCalendar::getDate)
                 .collect(Collectors.toList());
     }
+
+    @Override
+    public Boolean updateAvailableDate(Date date, Boolean availability) {
+        ReservationCalendar calendarDay = this.calendarRepository.findByDate(date);
+        if (calendarDay == null) return false;
+
+        calendarDay.setIsAvailable(availability);
+        this.calendarRepository.save(calendarDay);
+        return true;
+    }
+
+    @Override
+    public Boolean isAvailable(Date date) {
+        ReservationCalendar calendarDay = this.calendarRepository.findByDate(date);
+        if (calendarDay != null) {
+            return calendarDay.getIsAvailable();
+        } else {
+            return false;
+        }
+    }
+
+    @Override
+    public Boolean isAvailable(Date date, int duration) {
+        Date[] dates = this.dateUtility.getDateRange(date, duration);
+        for (Date day: dates) {
+            Boolean isAvailable = this.isAvailable(day);
+            if (!isAvailable) return false;
+        }
+        return true;
+    }
+
 }

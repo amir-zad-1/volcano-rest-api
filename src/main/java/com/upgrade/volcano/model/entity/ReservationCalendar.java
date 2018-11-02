@@ -1,9 +1,6 @@
 package com.upgrade.volcano.model.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -16,16 +13,17 @@ public class ReservationCalendar {
 
     private Boolean isAvailable;
 
-    private Date day;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date date;
 
     public ReservationCalendar() {
     }
 
-    public ReservationCalendar(Long id, Boolean isAvailable, Date day) {
+    public ReservationCalendar(Long id, Boolean isAvailable, Date date) {
 
         this.id = id;
         this.isAvailable = isAvailable;
-        this.day = day;
+        this.date = date;
     }
 
     public Long getId() {
@@ -36,20 +34,20 @@ public class ReservationCalendar {
         this.id = id;
     }
 
-    public Boolean getAvailable() {
+    public Boolean getIsAvailable() {
         return isAvailable;
     }
 
-    public void setAvailable(Boolean available) {
+    public void setIsAvailable(Boolean available) {
         isAvailable = available;
     }
 
-    public Date getDay() {
-        return day;
+    public Date getDate() {
+        return date;
     }
 
-    public void setDay(Date day) {
-        this.day = day;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
 }

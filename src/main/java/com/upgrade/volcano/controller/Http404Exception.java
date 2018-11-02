@@ -6,4 +6,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ResponseStatus(code = HttpStatus.NOT_FOUND, reason = "Resource Not Found!")
 public class Http404Exception extends RuntimeException {
+
+    public Http404Exception() {
+        super("Resource Not Found!");
+    }
 }

@@ -2,21 +2,23 @@ package com.upgrade.volcano.model.dto;
 
 import com.upgrade.volcano.model.entity.Reservation;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.TimeZone;
 
 public class ReservationDto {
 
     private String customerEmail;
-    private Date arrivalDate;
-    private Date departureDate;
+    private String arrivalDate;
+    private int duration;
 
     public ReservationDto() {
     }
 
     public ReservationDto(Reservation reservation) {
-        this.setArrivalDate(reservation.getArrivalDate());
+        this.setArrivalDate(reservation.getArrivalDate().toString());
         this.setCustomerEmail(reservation.getEmail());
-        this.setDepartureDate(reservation.getDepartureDate());
+        this.setDuration(reservation.getDuration());
     }
 
     public String getCustomerEmail() {
@@ -27,20 +29,21 @@ public class ReservationDto {
         this.customerEmail = customerEmail;
     }
 
-    public Date getArrivalDate() {
+    public String getArrivalDate() {
         return arrivalDate;
     }
 
-    public void setArrivalDate(Date arrivalDate) {
+    public void setArrivalDate(String arrivalDate) {
         this.arrivalDate = arrivalDate;
     }
 
-    public Date getDepartureDate() {
-        return departureDate;
+    public int getDuration() {
+        return duration;
     }
 
-    public void setDepartureDate(Date departureDate) {
-        this.departureDate = departureDate;
+    public void setDuration(int duration) {
+        this.duration = duration;
     }
+
 
 }
