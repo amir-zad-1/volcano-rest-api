@@ -1,12 +1,12 @@
 # Volcano REST-API Service 
 
-#### Technologies:
-#####API:
+### Technologies:
+####API:
 1. Java 1.8
 2. Framework: Spring Boot
 3. Database: H2 (In-memory)
 
-#####Integration Test App:
+####Integration Test App:
 1. Node.js
 2. Test Framework: mocha
 
