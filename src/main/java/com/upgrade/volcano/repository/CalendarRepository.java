@@ -12,6 +12,7 @@ import java.util.List;
 public interface CalendarRepository extends JpaRepository<ReservationCalendar, Long> {
 
     List<ReservationCalendar> findByIsAvailable(boolean availabilityStatus);
+
     ReservationCalendar findByDate(Date date);
 
 }

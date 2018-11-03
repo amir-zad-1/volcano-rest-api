@@ -1,11 +1,15 @@
 package com.upgrade.volcano.model.dto;
 
 import com.upgrade.volcano.model.entity.Reservation;
+import com.upgrade.volcano.service.DateUtility;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ReservationDto {
+
+    DateUtility dateUtility = new DateUtility();
 
     private String customerEmail;
     private String arrivalDate;
@@ -16,7 +20,7 @@ public class ReservationDto {
     }
 
     public ReservationDto(Reservation reservation) {
-        this.setArrivalDate(reservation.getArrivalDate().toString());
+        this.setArrivalDate(dateUtility.formateDate(reservation.getArrivalDate()));
         this.setCustomerEmail(reservation.getEmail());
         this.setDuration(reservation.getDuration());
     }

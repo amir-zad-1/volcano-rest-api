@@ -8,7 +8,7 @@ public interface ReservationServiceContract {
 
     List<Reservation> getAll();
 
-//    List<Date> getAvailableDates(Date startDate, Date endDate);
+    void deleteAll();
 
     Reservation book(Reservation reservation);
 

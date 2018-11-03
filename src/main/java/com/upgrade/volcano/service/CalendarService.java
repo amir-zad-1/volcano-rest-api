@@ -79,4 +79,9 @@ public class CalendarService implements CalendarServiceContract {
         return true;
     }
 
+    @Override
+    public void deleteAll() {
+        this.calendarRepository.deleteAll();
+    }
+
 }

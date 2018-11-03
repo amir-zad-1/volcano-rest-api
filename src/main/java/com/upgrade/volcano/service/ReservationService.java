@@ -10,13 +10,15 @@ import com.upgrade.volcano.repository.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
 
 @Service
 public class ReservationService implements ReservationServiceContract {
+
+    private final int MIN_RESERVATION_DURATION = 0;
+    private final int MAX_RESERVATION_DURATION = 3;
 
     @Autowired
     protected ReservationRepository reservationRepository;
@@ -33,9 +35,18 @@ public class ReservationService implements ReservationServiceContract {
         return this.reservationRepository.findAll();
     }
 
+    @Override
+    public void deleteAll() {
+        this.reservationRepository.deleteAll();
+    }
+
     private Boolean validate(Reservation reservation) {
-        // todo reservation validation
-        return true;
+        Boolean result = true;
+
+        if (reservation.getDuration() > MAX_RESERVATION_DURATION || reservation.getDuration() < MIN_RESERVATION_DURATION)
+            result = false;
+
+        return result;
     }
 
     @Override
